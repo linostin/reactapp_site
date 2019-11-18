@@ -4,8 +4,10 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./components/css/index.css";
 import AppJoke from "./AppJoke";
+import AppClassState from "./ClassState/AppClassState";
+import StateChanges from "./ClassState/StateChanges";
 
-ReactDOM.render(<AppJoke />, document.getElementById("root"));
+ReactDOM.render(<StateChanges />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
