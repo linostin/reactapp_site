@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import App from "./1stLessonCatsCards/App";
 import * as serviceWorker from "./serviceWorker";
 import "./components/css/index.css";
-import AppJoke from "./AppJoke";
-import AppClassState from "./ClassState/AppClassState";
-import StateChanges from "./ClassState/StateChanges";
+import AppJoke from "./components/JokesMapArray/AppJoke";
+import AppClassState from "./components/ClassState/AppClassState";
+import StateChanges from "./components/ClassState/StateChanges";
 
 ReactDOM.render(<StateChanges />, document.getElementById("root"));
 
