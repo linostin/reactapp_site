@@ -84,7 +84,7 @@ class ReactForms extends React.Component {
 
         <br />
 
-        <label>Favorite Color:</label>
+        <label>Favorite Color is:</label>
         <select
           value={this.state.favColor}
           onChange={this.handleChange}
