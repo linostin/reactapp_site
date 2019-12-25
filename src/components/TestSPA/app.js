@@ -1,25 +1,16 @@
 import React from "react";
-import "./app.css";
-import logo from "./../../img/logo_200x200.png";
+import "./css/app.css";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import Maincontent from "./components/Maincontent";
+//import logo from "./../../img/logo_200x200.png";
 
 const App = () => {
   return (
     <div className="app-wrapper">
-      <header className="header">
-        <img src={logo} alt="Smiley face"></img>
-      </header>
-
-      <sidebar className="sidebar">
-        <nav className="sidebarnav">
-          <div>Main</div>
-          <div>Profile</div>
-          <div>Messages</div>
-        </nav>
-      </sidebar>
-
-      <content className="maincontent">
-        <div>Main content</div>
-      </content>
+      <Header />
+      <Sidebar />
+      <Maincontent />
     </div>
   );
 };

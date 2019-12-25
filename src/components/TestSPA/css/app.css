@@ -10,6 +10,7 @@
 
 .header {
   grid-area: h;
+  background-color: beige;
 }
 
 .header img {
@@ -18,6 +19,7 @@
 
 .sidebar {
   grid-area: s;
+  background-color: beige;
 }
 
 .sidebarnav {
@@ -25,4 +27,5 @@
 
 .maincontent {
   grid-area: mn;
+  background-color: beige;
 }
