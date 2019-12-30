@@ -1,9 +1,9 @@
 import React from "react";
-import "./../css/Maincontent.css";
+import styles from "./../css/Maincontent.module.css";
 
 const Maincontent = () => {
   return (
-    <content className="maincontent">
+    <content className={styles.maincontent}>
       <div>IMG</div>
       <div>avatar</div>
       <div>decription</div>
