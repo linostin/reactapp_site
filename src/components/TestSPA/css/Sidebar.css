@@ -1,0 +1,7 @@
+.sidebar {
+  grid-area: s;
+  background-color: beige;
+}
+
+.sidebarnav {
+}

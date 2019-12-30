@@ -7,25 +7,3 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
 }
-
-.header {
-  grid-area: h;
-  background-color: beige;
-}
-
-.header img {
-  width: 50px;
-}
-
-.sidebar {
-  grid-area: s;
-  background-color: beige;
-}
-
-.sidebarnav {
-}
-
-.maincontent {
-  grid-area: mn;
-  background-color: beige;
-}
