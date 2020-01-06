@@ -7,6 +7,7 @@ const Sidebar = () => {
     <sidebar className={styles.sidebar}>
       <nav className={styles.sidebarnav}>
         <div>Main</div>
+        <div><NavLink to ="/MyPosts">MyPosts</NavLink></div>
         <div><NavLink to ="/Maincontent">Maincontent</NavLink></div>
         <div><NavLink to ="/Dialogs">Messages</NavLink></div>
       </nav>
