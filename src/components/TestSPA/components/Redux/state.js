@@ -1,3 +1,5 @@
+import {RenderEntireTree} from "./../../../../render"
+
 let state = {
     DialogsPage: {
         DialogsData: [
@@ -28,6 +30,7 @@ export let addPost = (postMessage) => {
         post: postMessage
     }
     state.PostsPage.PostsData.push(NewPost);
+    RenderEntireTree(state);
 }
 
 // let DialogsData =[
