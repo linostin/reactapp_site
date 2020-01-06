@@ -38,11 +38,11 @@ const Dialogs = (props) => {
 //     {id: "3", message: "Where you from?"}
 // ]
 
-let DialogsElements = props.DialogsData.map (
+let DialogsElements = props.DialogsPage.DialogsData.map (
     (Dialog) => <DialogItem name={Dialog.name} id={Dialog.id} />
 )
 
-let MessagesElements = props.MessagesData.map (
+let MessagesElements = props.DialogsPage.MessagesData.map (
     (Messages) => <MessagesItem message={Messages.message} />
 )
 
