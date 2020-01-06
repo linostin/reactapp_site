@@ -22,6 +22,14 @@ let state = {
     }
     
 
+export let addPost = (postMessage) => {
+    let NewPost = {
+        id: 5,
+        post: postMessage
+    }
+    state.PostsPage.PostsData.push(NewPost);
+}
+
 // let DialogsData =[
 //     {id: "1", name: "user1"},
 //     {id: "2", name: "user2"},

@@ -12,9 +12,10 @@ import * as serviceWorker from "./serviceWorker";
 import {BrowserRouter} from "react-router-dom"
 import App from "./components/TestSPA/app";
 import state from "./components/TestSPA/components/Redux/state"
+import {addPost} from "./components/TestSPA/components/Redux/state"
 
 ReactDOM.render(
-<BrowserRouter><App state={state}/></BrowserRouter>, document.getElementById("root")
+<BrowserRouter><App state={state} addPost={addPost}/></BrowserRouter>, document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

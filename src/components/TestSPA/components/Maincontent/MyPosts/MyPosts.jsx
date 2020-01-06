@@ -1,5 +1,5 @@
 import React from "react";
-import OnePost from "./OnePost/OnePost";
+//import OnePost from "./OnePost/OnePost";
 //import styles from "./MyPosts.module.css";
 import styles from "./../Maincontent.module.css";
 
@@ -11,7 +11,7 @@ const MyPosts = (props) => {
 
   let AddPost = () => {
     let text = NewPostElement.current.value;
-    alert(text)
+    props.AddPost(text)
   }
 
 
