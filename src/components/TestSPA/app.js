@@ -7,16 +7,19 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import {Route, BrowserRouter} from "react-router-dom"
 //import logo from "./../../img/logo_200x200.png";
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
     <div className="app-wrapper">
       <Header />
       <Sidebar />
-      <Maincontent />
-      <Dialogs />
-      <Route path="/Maincontent" component={Maincontent} />
-      <Route path="/Dialogs" component={Dialogs} />
+      {/* <Maincontent />
+      <Dialogs /> */}
+      {/* <Route path="/Maincontent" component={Maincontent} />
+      <Route path="/Dialogs" component={Dialogs} /> */}
+
+      <Route path="/Maincontent" render= { () => <Maincontent /> }/>
+      <Route path="/Dialogs" render= { () => <Dialogs DialogsData={props.state.DialogsPage.DialogsData} MessagesData={props.state.DialogsPage.MessagesData}/> } />
       <div>
         
       </div>
