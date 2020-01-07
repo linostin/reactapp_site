@@ -13,7 +13,7 @@ const MyPosts = (props) => {
     // let text = NewPostElement.current.value;
     props.addPost()
     // NewPostElement.current.value = "";
-    props.updateNewPostText("");
+    // props.updateNewPostText("");
   }
 
 

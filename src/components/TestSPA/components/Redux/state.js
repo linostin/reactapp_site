@@ -31,6 +31,7 @@ export let addPost = () => {
         post: state.PostsPage.newPostText
     }
     state.PostsPage.PostsData.push(NewPost);
+    state.PostsPage.newPostText = "";
     RenderEntireTree(state);
 }
 
