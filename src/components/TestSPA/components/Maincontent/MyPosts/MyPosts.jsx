@@ -10,9 +10,10 @@ const MyPosts = (props) => {
 
 
   let AddPost = () => {
-    let text = NewPostElement.current.value;
-    props.addPost(text)
-    NewPostElement.current.value = "";
+    // let text = NewPostElement.current.value;
+    props.addPost()
+    // NewPostElement.current.value = "";
+    props.updateNewPostText("");
   }
 
 
@@ -28,6 +29,10 @@ const MyPosts = (props) => {
     (Posts) => <PostItem post={Posts.post}/>
 )
 
+let onPostChange = () => {
+  let text = NewPostElement.current.value;
+    props.updateNewPostText(text)
+}
 
   return (
   <div className={styles.maincontent}>
@@ -36,7 +41,7 @@ const MyPosts = (props) => {
       <OnePost message="Heloo 345"/> */}
       {PostsElements}
       <div>
-        <textarea ref={NewPostElement}></textarea>
+        <textarea onChange={onPostChange} ref={NewPostElement} value={props.newPostText}/>
       </div>
       <div>
         <button onClick={AddPost}>AddPost</button>

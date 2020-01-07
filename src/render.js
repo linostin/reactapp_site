@@ -13,10 +13,11 @@ import {BrowserRouter} from "react-router-dom"
 import App from "./components/TestSPA/app";
 //import state from "./components/TestSPA/components/Redux/state"
 import {addPost} from "./components/TestSPA/components/Redux/state"
+import {updateNewPostText} from './components/TestSPA/components/Redux/state'
 
 export let RenderEntireTree= (state) => {
     ReactDOM.render(
-        <BrowserRouter><App state={state} addPost={addPost}/></BrowserRouter>, document.getElementById("root")
+        <BrowserRouter><App state={state} addPost={addPost} updateNewPostText={updateNewPostText}/></BrowserRouter>, document.getElementById("root")
         );
 }
 

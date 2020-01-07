@@ -15,6 +15,7 @@ let state = {
         ]
         },
     PostsPage: {
+        newPostText: "test post state example",
         PostsData: [
             {id: "1", post: "Hi world!"},
             {id: "2", post: "How are you?"},
@@ -24,15 +25,20 @@ let state = {
     }
     
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let NewPost = {
         id: 5,
-        post: postMessage
+        post: state.PostsPage.newPostText
     }
     state.PostsPage.PostsData.push(NewPost);
     RenderEntireTree(state);
 }
 
+
+export let updateNewPostText = (newText) => {
+    state.PostsPage.newPostText = newText;
+    RenderEntireTree(state);
+}
 // let DialogsData =[
 //     {id: "1", name: "user1"},
 //     {id: "2", name: "user2"},
