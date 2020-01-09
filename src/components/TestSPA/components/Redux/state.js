@@ -1,4 +1,6 @@
-import {RenderEntireTree} from "./../../../../render"
+let RenderEntireTree = () => {
+    console.log("State changed")
+}
 
 let state = {
     DialogsPage: {
@@ -25,7 +27,7 @@ let state = {
     }
     
 
-export let addPost = () => {
+export const addPost = () => {
     let NewPost = {
         id: 5,
         post: state.PostsPage.newPostText
@@ -36,10 +38,16 @@ export let addPost = () => {
 }
 
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.PostsPage.newPostText = newText;
     RenderEntireTree(state);
 }
+
+export const subscribe = (observer) => {
+    RenderEntireTree = observer;
+}
+
+
 // let DialogsData =[
 //     {id: "1", name: "user1"},
 //     {id: "2", name: "user2"},
