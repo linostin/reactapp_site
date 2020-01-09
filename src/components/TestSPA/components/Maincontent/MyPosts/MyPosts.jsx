@@ -11,9 +11,14 @@ const MyPosts = (props) => {
 
   let AddPost = () => {
     // let text = NewPostElement.current.value;
-    props.addPost()
+    props.dispatch({ type: "ADD-POST"})
     // NewPostElement.current.value = "";
     // props.updateNewPostText("");
+  }
+
+  let onPostChange = () => {
+    let text = NewPostElement.current.value;
+      props.dispatch({ type: "UPDATE-NEW-POST-TEXT", newText: text})
   }
 
 
@@ -28,11 +33,6 @@ const MyPosts = (props) => {
   let PostsElements = props.PostsPage.PostsData.map (
     (Posts) => <PostItem post={Posts.post}/>
 )
-
-let onPostChange = () => {
-  let text = NewPostElement.current.value;
-    props.updateNewPostText(text)
-}
 
   return (
   <div className={styles.maincontent}>
