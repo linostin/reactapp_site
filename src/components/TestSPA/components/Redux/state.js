@@ -1,9 +1,13 @@
 const ADD_POST = "ADD-POST";
- const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const SEND_MESSAGE = "SEND_MESSAGE";
+const UPDATE_NEW_MESSAGEBODY = "UPDATE-NEW-MESSAGEBODY";
+
 
 let store = {
     _state: {
         DialogsPage: {
+            NewMessageBody: "",
             DialogsData: [
                 {id: "1", name: "user1"},
                 {id: "2", name: "user2"},
@@ -40,15 +44,20 @@ let store = {
 
     dispatch(action) {
         if (action.type === ADD_POST) {
-            let NewPost = {
-                id: 5,
-                post: this._state.PostsPage.newPostText
-            }
-            this._state.PostsPage.PostsData.push(NewPost);
+            let NewPost = this._state.PostsPage.newPostText;
             this._state.PostsPage.newPostText = "";
+            this._state.PostsPage.PostsData.push({id: 4, post: NewPost});
             this._callSubscriber(this._state);
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.PostsPage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } else if (action.type === SEND_MESSAGE) {
+            let NewBody = this._state.DialogsPage.NewMessageBody;
+            this._state.DialogsPage.NewMessageBody = "";
+            this._state.DialogsPage.MessagesData.push({id: 4, message: NewBody});
+            this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_NEW_MESSAGEBODY) {
+            this._state.DialogsPage.NewMessageBody = action.NewBody;
             this._callSubscriber(this._state);
         }
     }
@@ -56,7 +65,7 @@ let store = {
 
 export const addPostActionCreator = () => {
     return {
-      type: ADD_POST
+      type: ADD_POST,
     }
   }
   
@@ -67,68 +76,18 @@ export const updateNewPostTextActionCreator = (text) => {
     }
   }
 
-
-// let RenderEntireTree = () => {
-//     console.log("State changed")
-// }
-
-// let state = {
-//     DialogsPage: {
-//         DialogsData: [
-//             {id: "1", name: "user1"},
-//             {id: "2", name: "user2"},
-//             {id: "3", name: "user3"}
-//         ],
-    
-//         MessagesData: [
-//             {id: "1", message: "Hello!"},
-//             {id: "2", message: "How are you?"},
-//             {id: "3", message: "Where you from?"}
-//         ]
-//         },
-//     PostsPage: {
-//         newPostText: "test post state example",
-//         PostsData: [
-//             {id: "1", post: "Hi world!"},
-//             {id: "2", post: "How are you?"},
-//             {id: "3", post: "Nice!"}
-//         ]
-//         }
-//     }
-    
-
-// export const addPost = () => {
-//     let NewPost = {
-//         id: 5,
-//         post: state.PostsPage.newPostText
-//     }
-//     state.PostsPage.PostsData.push(NewPost);
-//     state.PostsPage.newPostText = "";
-//     RenderEntireTree(state);
-// }
-
-
-// export const updateNewPostText = (newText) => {
-//     state.PostsPage.newPostText = newText;
-//     RenderEntireTree(state);
-// }
-
-// export const subscribe = (observer) => {
-//     RenderEntireTree = observer;
-// }
-
-
-// let DialogsData =[
-//     {id: "1", name: "user1"},
-//     {id: "2", name: "user2"},
-//     {id: "3", name: "user3"}
-// ]
-
-// let MessagesData =[
-//     {id: "1", message: "Hello!"},
-//     {id: "2", message: "How are you?"},
-//     {id: "3", message: "Where you from?"}
-// ]
+export const sendMessageActionCreator = () => {
+    return {
+      type: SEND_MESSAGE,
+    }
+  }
+  
+export const updateNewMessageBodyActionCreator = (body) => {
+    return {
+      type: UPDATE_NEW_MESSAGEBODY,
+      NewBody: body
+    }
+  }
 
 
 export default store;

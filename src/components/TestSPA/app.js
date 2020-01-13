@@ -20,7 +20,7 @@ const App = (props) => {
       <Route path="/Dialogs" component={Dialogs} /> */}
       <Route path="/MyPosts" render={ () => <MyPosts PostsPage={props.state.PostsPage} dispatch={props.dispatch} /> } />
       <Route path="/Maincontent" render= { () => <Maincontent /> }/>
-      <Route path="/Dialogs" render= { () => <Dialogs DialogsPage={props.state.DialogsPage}/> } />
+      <Route path="/Dialogs" render= { () => <Dialogs DialogsPage={props.state.DialogsPage}/> } dispatch={props.dispatch} />
       <div>
         
       </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "./Dialogs.module.css"
 import mainstyles from "./../Maincontent/Maincontent.module.css";
 import { NavLink } from 'react-router-dom';
+import {sendMessageActionCreator, updateNewMessageBodyActionCreator } from "./../Redux/state"
 
 
 const DialogItem = (props) => {
@@ -26,18 +27,6 @@ const MessagesItem = (props) => {
 const Dialogs = (props) => {
 
 
-// let DialogsData =[
-//     {id: "1", name: "user1"},
-//     {id: "2", name: "user2"},
-//     {id: "3", name: "user3"}
-// ]
-
-// let MessagesData =[
-//     {id: "1", message: "Hello!"},
-//     {id: "2", message: "How are you?"},
-//     {id: "3", message: "Where you from?"}
-// ]
-
 let DialogsElements = props.DialogsPage.DialogsData.map (
     (Dialog) => <DialogItem name={Dialog.name} id={Dialog.id} />
 )
@@ -46,31 +35,34 @@ let MessagesElements = props.DialogsPage.MessagesData.map (
     (Messages) => <MessagesItem message={Messages.message} />
 )
 
+let NewMessageBody = props.DialogsPage.NewMessageBody;
+
+let onSendMessageClick = () => {
+    props.dispatch(sendMessageActionCreator())
+}
+
+let onNewMessageChange = (event) => {
+    let body = event.target.value;
+    props.dispatch(updateNewMessageBodyActionCreator(body))
+}
 
     return (
         <div className={mainstyles.maincontent}>
-            <div className={styles.dialogs}>
-            <div className={styles.users}>
-                users
-                {/* <DialogItem name="user1" id="1" />
-                <DialogItem name="user2" id="2" />
-                <DialogItem name="user3" id="3" /> */}
-                {/* <DialogItem name={DialogsData[0].name} id={DialogsData[0].id} />
-                <DialogItem name={DialogsData[1].name} id={DialogsData[1].id} />
-                <DialogItem name={DialogsData[2].name} id={DialogsData[2].id} /> */}
-                {DialogsElements}
 
-            </div>
-            <div className={styles.messages}>
-                messages
-                {/* <MessagesItem message="Hello!" />
-                <MessagesItem message="How are you?" />
-                <MessagesItem message="Where you from?" /> */}
-                {/* <MessagesItem message={MessagesData[0].message} id={MessagesData[0].id} />
-                <MessagesItem message={MessagesData[1].message} id={MessagesData[1].id} />
-                <MessagesItem message={MessagesData[2].message} id={MessagesData[2].id} /> */}
-                {MessagesElements}
-            </div>
+            <div className={styles.dialogs}>
+
+                <div className={styles.users}>
+                    <div><h3>users</h3></div>
+                    <div>{DialogsElements}</div>
+                </div>
+
+                <div className={styles.messages}>
+                    <div><h3>messages</h3></div>
+                    <div>{MessagesElements}</div>
+                    <div><textarea value={NewMessageBody} placeholder="Enter your message here" onChange= {onNewMessageChange}/></div>
+                    <div><button onClick= {onSendMessageClick}>Send</button></div>
+                </div>
+
             </div>
         </div>
     )
