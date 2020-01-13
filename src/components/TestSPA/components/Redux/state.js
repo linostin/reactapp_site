@@ -1,8 +1,5 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const SEND_MESSAGE = "SEND_MESSAGE";
-const UPDATE_NEW_MESSAGEBODY = "UPDATE-NEW-MESSAGEBODY";
-
+import PostPageReducer from "./PostsPageReducer"
+import DialogsPageReducer from "./DialogsPageReducer"
 
 let store = {
     _state: {
@@ -43,51 +40,13 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let NewPost = this._state.PostsPage.newPostText;
-            this._state.PostsPage.newPostText = "";
-            this._state.PostsPage.PostsData.push({id: 4, post: NewPost});
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.PostsPage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === SEND_MESSAGE) {
-            let NewBody = this._state.DialogsPage.NewMessageBody;
-            this._state.DialogsPage.NewMessageBody = "";
-            this._state.DialogsPage.MessagesData.push({id: 4, message: NewBody});
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGEBODY) {
-            this._state.DialogsPage.NewMessageBody = action.NewBody;
-            this._callSubscriber(this._state);
+
+        this._state.PostsPage =  PostPageReducer(this._state.PostsPage, action);
+        this._state.DialogsPage = DialogsPageReducer(this._state.DialogsPage, action);
+        this._callSubscriber(this._state);
+
         }
-    }
 }
 
-export const addPostActionCreator = () => {
-    return {
-      type: ADD_POST,
-    }
-  }
-  
-export const updateNewPostTextActionCreator = (text) => {
-    return {
-      type: UPDATE_NEW_POST_TEXT,
-      newText: text
-    }
-  }
-
-export const sendMessageActionCreator = () => {
-    return {
-      type: SEND_MESSAGE,
-    }
-  }
-  
-export const updateNewMessageBodyActionCreator = (body) => {
-    return {
-      type: UPDATE_NEW_MESSAGEBODY,
-      NewBody: body
-    }
-  }
-
-
 export default store;
+window.store = store;

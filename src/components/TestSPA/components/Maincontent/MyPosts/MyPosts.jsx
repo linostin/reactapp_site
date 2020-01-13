@@ -2,9 +2,7 @@ import React from "react";
 //import OnePost from "./OnePost/OnePost";
 //import styles from "./MyPosts.module.css";
 import styles from "./../Maincontent.module.css";
-import {addPostActionCreator, updateNewPostTextActionCreator } from "./../../Redux/state"
-
-
+import {addPostActionCreator, updateNewPostTextActionCreator } from "./../../Redux/PostsPageReducer"
 
 
 const MyPosts = (props) => {

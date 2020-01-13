@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./Dialogs.module.css"
 import mainstyles from "./../Maincontent/Maincontent.module.css";
 import { NavLink } from 'react-router-dom';
-import {sendMessageActionCreator, updateNewMessageBodyActionCreator } from "./../Redux/state"
+import {sendMessageActionCreator, updateNewMessageBodyActionCreator } from "./../Redux/DialogsPageReducer"
 
 
 const DialogItem = (props) => {
