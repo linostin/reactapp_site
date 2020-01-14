@@ -1,7 +1,16 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
-const PostPageReducer = (state, action) => {
+let initialState ={
+            newPostText: "test post state example",
+            PostsData: [
+                {id: "1", post: "Hi world!"},
+                {id: "2", post: "How are you?"},
+                {id: "3", post: "Nice!"}
+            ]
+          };
+
+const PostPageReducer = (state = initialState, action) => {
 
         switch (action.type) {
             case ADD_POST: 
