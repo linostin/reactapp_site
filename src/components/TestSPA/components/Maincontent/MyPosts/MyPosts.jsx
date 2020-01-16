@@ -7,23 +7,20 @@ import {addPostActionCreator, updateNewPostTextActionCreator } from "./../../Red
 
 const MyPosts = (props) => {
 
+  let PostsElements = props.PostsPage.PostsData.map (
+    (Posts) => <PostItem post={Posts.post}/>
+  )
 
   let NewPostElement = React.createRef();
 
 
-  let AddPost = () => {
-    // let text = NewPostElement.current.value;
-    //props.dispatch(addPostActionCreator())
-    // NewPostElement.current.value = "";
-    // props.updateNewPostText("");
+  let onAddPost = () => {
     props.AddPost();
   }
 
   let onPostChange = () => {
     let text = NewPostElement.current.value;
-    // let action = updateNewPostTextActionCreator(text);
-    // props.dispatch(action)
-    props.onPostChange(text);
+    props.updateNewPostText(text);
   }
 
 
@@ -35,21 +32,14 @@ const MyPosts = (props) => {
     )
 }
 
-  let PostsElements = props.PostsPage.PostsData.map (
-    (Posts) => <PostItem post={Posts.post}/>
-)
-
   return (
   <div className={styles.maincontent}>
-      {/* <OnePost message="Heloo"/>
-      <OnePost message="Heloo 123"/>
-      <OnePost message="Heloo 345"/> */}
       {PostsElements}
       <div>
         <textarea onChange={onPostChange} ref={NewPostElement} value={props.newPostText}/>
       </div>
       <div>
-        <button onClick={AddPost}>AddPost</button>
+        <button onClick={onAddPost}>AddPost</button>
       </div>
       
   </div>
