@@ -2,12 +2,12 @@ import React from "react";
 //import OnePost from "./OnePost/OnePost";
 //import styles from "./MyPosts.module.css";
 import styles from "./../Maincontent.module.css";
-import {addPostActionCreator, updateNewPostTextActionCreator } from "./../../Redux/PostsPageReducer"
+//import {addPostActionCreator, updateNewPostTextActionCreator } from "./../../Redux/PostsPageReducer"
 
 
 const MyPosts = (props) => {
 
-  let PostsElements = props.PostsPage.PostsData.map (
+  let PostsElements = props.posts.map (
     (Posts) => <PostItem post={Posts.post}/>
   )
 
